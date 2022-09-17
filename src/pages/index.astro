@@ -1,0 +1,69 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image, Picture } from "@astrojs/image/components";
+
+import panda from "../images/panda_2x1.jpg";
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <h1>Picture</h1>
+    <p>Width and height are set as HTML attributes:</p>
+    <p>img width="800" height="400"</p>
+    <p>
+      So the picture extends outside parent element. Ideally this should be
+      contained, allowing for fluid layouts.
+    </p>
+    <Picture
+      class="responsive"
+      src={panda}
+      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 100vw)"
+      widths={[400, 800]}
+      aspectRatio="2:1"
+      format={["avif", "webp", "jpeg"]}
+      alt="descriptive text"
+    />
+  </main>
+  <div class="fullwidth">
+    <h1>Image</h1>
+    <p>
+      Full width container, with .responsive [ width: 100%; height: auto;
+      display: inline-block;] class applied.
+    </p>
+    <p>
+      Image is fluid, but no options to export in multiple format (jpeg, avif,
+      webp), or multiple sizes. These options were available in the now broken
+      Astro ImageTools.
+    </p>
+    <Image class="responsive" src={panda} alt="descriptive text" />
+  </div>
+</Layout>
+
+<style>
+  :root {
+    --astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
+  }
+
+  h1 {
+    margin: 2rem 0;
+  }
+
+  main {
+    margin: auto;
+    padding: 1em;
+    max-width: 60ch;
+    background-color: blanchedalmond;
+  }
+  .responsive {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+  }
+  p,
+  h1 {
+    padding: 0 1rem;
+  }
+  p {
+    max-width: 60ch;
+  }
+</style>
