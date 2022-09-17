@@ -7,6 +7,14 @@ import panda from "../images/panda_2x1.jpg";
 
 <Layout title="Welcome to Astro.">
   <main>
+    <a
+      href="https://astro-image-example.netlify.app/"
+      target="_blank"
+      rel="noopener noreferrer">https://astro-image-example.netlify.app</a
+    >
+    <a href="https://github.com/SaintSin/astro-image-example" target="_blank">
+      https://github.com/SaintSin/astro-image-example</a
+    >
     <h1>Picture</h1>
     <p>Width and height are set as HTML attributes:</p>
     <p>img width="800" height="400"</p>
@@ -65,5 +73,9 @@ import panda from "../images/panda_2x1.jpg";
   }
   p {
     max-width: 60ch;
+  }
+  a {
+    padding-bottom: 1rem;
+    display: block;
   }
 </style>
